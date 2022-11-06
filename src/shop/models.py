@@ -1,9 +1,9 @@
 from django.db import models
 
 PRODUCT_LABEL = [
-    'SALE',
-    'NEW',
-    'HOT',
+    ('SALE', 'sale'),
+    ('NEW', 'new'),
+    ('HOT', 'hot'),
 ]
 
 
