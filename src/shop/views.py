@@ -1,7 +1,10 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView, TemplateView
+
+from .models import Product
 
 
-class Home(TemplateView):
+class Home(ListView):
+    model = Product
     template_name = 'shop/index.html'
 
 
