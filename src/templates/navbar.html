@@ -11,7 +11,6 @@
                                     <a href="{% url 'home' %}">Home</a>
                                     <ul>
                                         <li><a href="{% url 'categories' %}">Categories</a></li>
-                                        <li><a href="{% url 'product' %}">Product</a></li>
                                         <li><a href="{% url 'cart' %}">Cart</a></li>
                                         <li><a href="{% url 'checkout' %}">Check out</a></li>
                                         <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -20,11 +19,9 @@
                                 <li class="hassubs">
                                     <a href="{% url 'categories' %}">Categories</a>
                                     <ul>
-                                        <li><a href="{% url 'categories' %}">Category</a></li>
-                                        <li><a href="{% url 'categories' %}">Category</a></li>
-                                        <li><a href="{% url 'categories' %}">Category</a></li>
-                                        <li><a href="{% url 'categories' %}">Category</a></li>
-                                        <li><a href="{% url 'categories' %}">Category</a></li>
+                                        {% for category in categories %}
+                                            <li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </li>
                                 <li><a href="#">Accessories</a></li>

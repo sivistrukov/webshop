@@ -160,29 +160,29 @@
 
                     <div class="product_grid">
 
-                        {% for object in object_list %}
+                        {% for product in products %}
                             <!-- Product -->
                             <div class="product">
-                                <div class="product_image"><img src="{% static 'images/products/product_1.jpg' %}"
+                                <div class="product_image"><img src="{{ product.productsimage_set.first }}"
                                                                 alt=""></div>
-                                {% if object.label == 'NEW' %}
+                                {% if product.label == 'NEW' %}
                                     <div class="product_extra product_new"><a href="{% url 'categories' %}">New</a>
                                     </div>
                                 {% endif %}
-                                {% if object.label == 'SALE' %}
+                                {% if product.label == 'SALE' %}
                                     <div class="product_extra product_sale"><a href="{% url 'categories' %}">Sale</a>
                                     </div>
                                 {% endif %}
-                                {% if object.label == 'HOT' %}
+                                {% if product.label == 'HOT' %}
                                     <div class="product_extra product_hot"><a href="{% url 'categories' %}">Hot</a>
                                     </div>
                                 {% endif %}
                                 <div class="product_content">
-                                    <div class="product_title"><a href="{% url 'product' %}">{{ object.name }}</a></div>
-                                    {% if object.sale is not null %}
-                                        <div class="product_price">${{ object.sale }}</div>
+                                    <div class="product_title"><a href="{% url 'product' product.id %}">{{ product.name }}</a></div>
+                                    {% if product.sale is not null %}
+                                        <div class="product_price">${{ product.sale }}</div>
                                     {% else %}
-                                        <div class="product_price">${{ object.price }}</div>
+                                        <div class="product_price">${{ product.price }}</div>
                                     {% endif %}
                                 </div>
                             </div>
