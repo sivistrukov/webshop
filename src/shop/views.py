@@ -1,28 +1,27 @@
-from django.views.generic import ListView, TemplateView
+from django.shortcuts import render
 
 from .models import Product
 
 
-class Home(ListView):
-    model = Product
-    template_name = 'shop/index.html'
+def home_view(request):
+    render(request, 'shop/index.html')
 
 
-class Cart(TemplateView):
-    template_name = 'shop/cart.html'
+def cart_view(request):
+    render(request, 'shop/cart.html')
 
 
-class Categories(TemplateView):
-    template_name = 'shop/categories.html'
+def categories_view(request, slug):
+    render(request, 'shop/categories.html')
 
 
-class Checkout(TemplateView):
-    template_name = 'shop/checkout.html'
+def checkout_view(reqeust):
+    render(reqeust, 'shop/checkout.html')
 
 
-class Contact(TemplateView):
-    template_name = 'shop/contact.html'
+def contacts_view(request):
+    render(request, 'shop/contact.html')
 
 
-class Product(TemplateView):
-    template_name = 'shop/product.html'
+def product_view(reqeust, pk):
+    render(reqeust, 'shop/product.html')
